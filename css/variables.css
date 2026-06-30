@@ -1,0 +1,82 @@
+/* ===========================================================
+   DESIGN TOKENS
+   Palette: deep indigo-black base with a hot-pink / amber /
+   violet "flash" gradient — a nod to neon photo-booth signage.
+   Type: system font stack only, so the app has zero external
+   dependencies and works fully offline after first load.
+   =========================================================== */
+:root {
+  /* Color */
+  --color-bg:          #0b0c1e;
+  --color-bg-soft:      #14152c;
+  --color-panel:        #1a1b35;
+  --color-panel-2:      #20223f;
+  --color-text:         #f4f1ff;
+  --color-text-dim:     #b9b6d6;
+  --color-text-faint:   #7d7aa0;
+  --color-accent:       #ff5da2;   /* hot pink — primary accent */
+  --color-accent-2:     #ffb84d;   /* warm amber — secondary accent */
+  --color-accent-3:     #7c5cff;   /* violet — gradient partner */
+  --color-success:      #4ddf9b;
+  --color-danger:       #ff6b6b;
+  --color-border:       rgba(244, 241, 255, 0.14);
+  --color-border-strong: rgba(244, 241, 255, 0.28);
+
+  --gradient-flash: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-3) 55%, #2e2a78 100%);
+  --gradient-warm:  linear-gradient(135deg, var(--color-accent-2) 0%, var(--color-accent) 100%);
+
+  /* Glass */
+  --glass-bg: rgba(26, 27, 53, 0.55);
+  --glass-bg-strong: rgba(26, 27, 53, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-blur: 18px;
+
+  /* Type */
+  --font-display: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body:    -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    "SF Mono", "Courier New", monospace;
+
+  --fs-2xl: clamp(2.1rem, 7vw, 3.4rem);
+  --fs-xl:  clamp(1.5rem, 4.5vw, 2.1rem);
+  --fs-lg:  1.25rem;
+  --fs-md:  1rem;
+  --fs-sm:  0.875rem;
+  --fs-xs:  0.75rem;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Shadow */
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-strong: 0 16px 48px rgba(0, 0, 0, 0.45);
+  --shadow-glow-accent: 0 0 32px rgba(255, 93, 162, 0.35);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 150ms;
+  --dur-mid: 280ms;
+  --dur-slow: 560ms;
+
+  /* Layout */
+  --app-bar-h: 56px;
+  --max-content-w: 720px;
+  --touch-target: 44px;
+}
+
+@media (prefers-color-scheme: light) {
+  /* The app is intentionally dark-themed everywhere (it's a booth),
+     so we keep tokens fixed rather than branching to a light scheme. */
+}

@@ -1,0 +1,75 @@
+/* ===========================================================
+   FRAMES
+   Every decorative frame is pure CSS, applied to #frame-overlay
+   — a transparent layer painted ON TOP of the photos — so it
+   scales to fit any layout automatically and needs no image
+   assets. The "none" case is handled with an inline border
+   style set from editor.js (so the user's custom border-color
+   picker has somewhere to apply when no decorative frame is
+   chosen). Corner glyphs are injected by editor.js as spans.
+   =========================================================== */
+
+.frame-overlay[data-frame="minimal"]   { border: 8px solid rgba(255,255,255,0.92); }
+
+.frame-overlay[data-frame="retro"]     {
+  border: 6px solid #1a1b35;
+  box-shadow:
+    inset 0 0 0 8px #ffb84d,
+    inset 0 0 0 12px #1a1b35;
+}
+
+.frame-overlay[data-frame="vintage"]   {
+  border: 16px solid rgba(214, 188, 140, 0.9);
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(60, 40, 10, 0.35) 100%);
+}
+
+.frame-overlay[data-frame="birthday"]  {
+  border: 10px dashed;
+  border-image: repeating-linear-gradient(45deg, #ff5da2 0 10px, #ffb84d 10px 20px, #7c5cff 20px 30px) 10;
+}
+
+.frame-overlay[data-frame="wedding"]   {
+  border: 4px solid #d8b46a;
+  box-shadow: inset 0 0 0 8px rgba(255,255,255,0.95), inset 0 0 0 10px #d8b46a;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(255,255,255,0.25) 100%);
+}
+
+.frame-overlay[data-frame="christmas"] {
+  border: 10px dashed;
+  border-image: repeating-linear-gradient(45deg, #e6473d 0 10px, #2e8b57 10px 20px, #ffffff 20px 30px) 10;
+}
+
+.frame-overlay[data-frame="cute"]      {
+  border: 12px solid #ffd6e8;
+  background: radial-gradient(ellipse at center, transparent 62%, rgba(255, 214, 232, 0.45) 100%);
+}
+
+.frame-overlay[data-frame="neon"]      {
+  border: 4px solid #ff5da2;
+  box-shadow:
+    inset 0 0 16px 4px #ff5da2,
+    inset 0 0 36px 8px rgba(124, 92, 255, 0.6);
+}
+
+.frame-overlay[data-frame="comic"]     {
+  border: 8px solid #0b0c1e;
+  background-image: radial-gradient(rgba(255,255,255,0.16) 2px, transparent 2.4px);
+  background-size: 10px 10px;
+  mix-blend-mode: overlay;
+}
+
+.frame-overlay[data-frame="polaroid"]  {
+  border: 16px solid #ffffff;
+  border-bottom-width: 56px;
+}
+
+.frame-corner {
+  position: absolute;
+  font-size: 22px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+.frame-corner.tl { top: 6px; left: 6px; }
+.frame-corner.tr { top: 6px; right: 6px; }
+.frame-corner.bl { bottom: 6px; left: 6px; }
+.frame-corner.br { bottom: 6px; right: 6px; }

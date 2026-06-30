@@ -1,0 +1,89 @@
+/* ===========================================================
+   RESPONSIVE — tablet & desktop enhancements.
+   Base styles above are mobile-first; everything here only
+   ADDS layout for more breathing room on bigger screens.
+   =========================================================== */
+
+/* ---------- Small phones: tighten spacing a touch ---------- */
+@media (max-width: 360px) {
+  .layout-grid { gap: var(--space-2); }
+  .sticker-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* ---------- Tablets ≥640px ---------- */
+@media (min-width: 640px) {
+  .landing-features { grid-template-columns: repeat(3, 1fr); }
+  .layout-grid { grid-template-columns: repeat(3, 1fr); }
+  .review-grid { grid-template-columns: repeat(3, 1fr); }
+  .sticker-grid { grid-template-columns: repeat(8, 1fr); }
+  .frame-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* ---------- Desktop ≥1024px: side-by-side editor ---------- */
+@media (min-width: 1024px) {
+  .screen:not(#screen-landing):not(#screen-camera):not(#screen-editor) {
+    max-width: var(--max-content-w);
+  }
+
+  .layout-grid { grid-template-columns: repeat(4, 1fr); }
+
+  #screen-editor.active { padding: 0; }
+  .editor-layout {
+    flex-direction: row;
+    height: calc(100dvh - var(--app-bar-h));
+  }
+  .editor-stage-wrap {
+    flex: 1;
+    justify-content: center;
+    padding: var(--space-6);
+  }
+  .editor-stage { min-height: unset; height: 100%; }
+  .editor-tools {
+    width: 380px;
+    flex-shrink: 0;
+    margin-top: 0;
+    border-top: none;
+    border-left: 1px solid var(--color-border);
+    border-radius: 0;
+    overflow-y: auto;
+  }
+  .tool-tabs { flex-direction: column; }
+  .tool-tab { flex-direction: row; justify-content: flex-start; gap: var(--space-2); }
+  .tool-panels { max-height: none; flex: 1; }
+
+  .camera-stage { max-width: 720px; margin: 0 auto; border-radius: var(--radius-lg); overflow: hidden; }
+
+  .hero-title { max-width: 14ch; }
+  .landing-hero { padding-left: var(--space-7); padding-right: var(--space-7); }
+  .landing-nav { padding-left: var(--space-7); padding-right: var(--space-7); }
+}
+
+/* ---------- Landscape phones: camera controls hug the sides ---------- */
+@media (orientation: landscape) and (max-height: 520px) {
+  .camera-bottom-controls {
+    bottom: var(--space-3);
+    padding: 0 var(--space-4);
+  }
+  .shutter-btn { width: 60px; height: 60px; }
+  .shutter-dot { width: 46px; height: 46px; }
+  .camera-top-controls { top: var(--space-3); }
+  .countdown-number { font-size: clamp(2.4rem, 12vw, 4rem); }
+  .countdown-ring { width: 140px; height: 140px; }
+
+  #screen-editor .editor-layout { flex-direction: row; }
+  .editor-tools { width: 320px; margin-top: 0; border-top: none; border-left: 1px solid var(--color-border); border-radius: 0; }
+  .tool-panels { max-height: none; }
+}
+
+/* ---------- Very short viewports (small phones, browser chrome open) ---------- */
+@media (max-height: 640px) {
+  .landing-hero { padding-top: var(--space-4); padding-bottom: var(--space-2); }
+  .landing-strip-preview { padding-bottom: var(--space-4); }
+  .feature-card { padding: var(--space-4); }
+}
+
+/* ---------- Guard against any accidental horizontal overflow ---------- */
+.layout-grid, .review-grid, .sticker-grid, .frame-grid,
+.swatch-row, .filter-strip, .sticker-categories, .tool-tabs {
+  max-width: 100%;
+}
